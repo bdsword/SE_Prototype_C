@@ -29,11 +29,13 @@ public class Client {
         Thread coordinateUpdateThread = new Thread(new CoordinateUpdater(this));
         coordinateUpdateThread.start();
 
-        while (scanner.hasNextLine()){
-            String serverIP = scanner.nextLine();
-            Thread coordinateUploadThread = new Thread(new CoordinateUploader(serverIP, this));
-            coordinateUploadThread.start();
-        }
+        String serverIP1 = scanner.nextLine();
+        Thread coordinateUploadThread1 = new Thread(new CoordinateUploader(serverIP1, this));
+        coordinateUploadThread1.start();
+
+        String serverIP2 = scanner.nextLine();
+        Thread coordinateUploadThread2 = new Thread(new CoordinateUploader(serverIP2, this));
+        coordinateUploadThread2.start();
     }
 
     private void initCoordinate() {
